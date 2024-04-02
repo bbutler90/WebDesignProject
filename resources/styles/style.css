@@ -1,5 +1,4 @@
 /* Team 3 - CSS for our Project  */
-
 body, html{
     
         margin: 0;
@@ -132,4 +131,3 @@ a.nav-link.nav-link:HOVER {
 @media (min-width: 992px) {
     /* CUSTOM DISPLAY */
 	.d-lg-none { display: none!important; }
-}
