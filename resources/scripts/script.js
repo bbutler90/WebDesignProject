@@ -104,3 +104,94 @@ function contactForm(){
   }
 	
 }
+
+// Script for the Mini Game on index.html
+function play(){
+
+  //
+  document.getElementById("gameMessage").innerHTML = '';
+
+  const div = document.getElementById('contentPlay');
+  const images = div.querySelectorAll('img'); 
+  const count = images.length;
+  let numbers = [];
+  let numToCheck = "1";
+  
+    
+  images.forEach(function(image) {
+    image.setAttribute('data-value', '0');
+    image.setAttribute('src', 'resources\\images\\question-mark.png'); 
+  });
+
+  //Create an Array with 1 (dog) and many 2(cats)
+  for(let i= 0; i < count; i++){  
+
+    if(numbers.includes(numToCheck)){
+      numbers.push("2");
+    }else{
+      numbers.push("1");
+    }   
+  }
+
+  //Shuffle the Array
+  shuffledNumbers = shuffle(numbers);
+  //Set the data value randomly
+  for (let i = 0; i < shuffledNumbers.length; i++) { 
+    const img = document.getElementById("imageGame"+i);
+    img.setAttribute('data-value', shuffledNumbers[i]);   
+  }
+
+}
+
+// Script for the Mini Game on index.html
+function shuffle(array) {
+  
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+// Script for the Mini Game on index.html
+function setGameImages(element) {
+  console.clear();
+  const img = document.getElementById(element.id);
+  const dataValueSelected = img.getAttribute('data-value');  
+
+  const div = document.getElementById('contentPlay');
+  const images = div.querySelectorAll('img'); 
+  const count = images.length;
+  let numbers = [];
+  let numToCheck = "1";
+  
+  
+
+  images.forEach(function(image) { 
+      
+    if(image.getAttribute('data-value') == "1"){
+      image.setAttribute('src', 'resources\\images\\dog-play.png');      
+    }else if(image.getAttribute('data-value') == "2"){
+      image.setAttribute('src', 'resources\\images\\cat-play.png');      
+    }else{
+      document.getElementById("gameMessage").innerHTML = "<div class='alert alert-warning' role='alert'>You need to click on 'Play!' first.</div>";
+    }
+
+    checkDog(dataValueSelected);
+
+  });
+
+}
+
+// Script for the Mini Game on index.html
+function checkDog(element){
+  console.clear();
+  if(element == "1"){
+    document.getElementById("gameMessage").innerHTML = "<div class='alert alert-success' role='alert'>Congratulations! You found the dog!</div>";
+  }else if(element == "2"){
+    document.getElementById("gameMessage").innerHTML = "<div class='alert alert-danger' role='alert'>You Lose! You found a cat!</div>";   
+  }else{
+    document.getElementById("gameMessage").innerHTML = "<div class='alert alert-warning' role='alert'>You need to click on 'Play!' first.</div>";
+  }
+
+}
