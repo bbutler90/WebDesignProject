@@ -1,4 +1,4 @@
-<!-- Team 3 - Index Page -->
+<!-- Team 3 - Available Puppies Page: Brian Butler -->
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,11 +13,6 @@
         <!-- CSS/JS import -->
         <link rel="stylesheet" href="resources/styles/style.css"/>
         <script src="resources/scripts/script.js"></script>    
-        
-        <!-- Fonts Import-->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
         
         <!-- Social Icons Import -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -40,7 +35,15 @@
                         <a class="nav-item nav-link" href="index.html">Home</a>
                         <a class="nav-link nav-link" href="aboutus.html">About Us</a>
                         <a class="nav-link nav-link" href="ourdogs.html">Our Dogs</a>
-                        <a class="nav-link nav-link" href="breedhealth.html">Breed Health</a>
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								Breed Health
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<li><a class="dropdown-item" href="breedhealth.html#health-tests">Essential Health Tests</a></li>
+								<li><a class="dropdown-item" href="breedhealth.html#hip-screening">Hip Evaluation</a></li>
+								<li><a class="dropdown-item" href="breedhealth.html#berner-garde">Berner-Garde Foundation</a></li>
+							</ul>
+						</div>
                         <a class="nav-link nav-link active" href="#">Available Puppies</a>
                         <a class="nav-item nav-link" href="contactus.html">Contact Us</a>
                     </div>
@@ -48,10 +51,36 @@
             </nav>
         </div>
 
-        <!-- Container for Content -->
+        <!-- Brian Butler: Container for Content -->
         <div class="container" id="content">
             <h1 class="text-center">Available Puppies!</h1>
+
+            <!-- Image and Description -->
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center">
+                    <img id="puppyImage" src="resources/images/puppies1.jpg" class="img-fluid">
+                    <p id="puppyText">We are always excited when we have new litters - each one filled with adorable puppies ready to find their forever homes. Take a moment to read about adopting one of our puppies.</p>
+                </div>
+            </div>
+
+            <!--Brian Butler: Buttons used to change text and image -->
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center">
+                    <button id="prevButton" class="btn btn-primary">Previous</button>
+                    <button id="nextButton" class="btn btn-primary">Next</button>
+                </div>
+            </div>
+
+            <!--Brian Butler: PDF Download Link -->
+            <div class="row justify-content-center btop-margin">
+                <div class="col-md-6 text-center">
+                    <a href="resources/images/Questionnaire.pdf" class="btn btn-primary" download target="_blank">
+                        <i class="fa fa-file-pdf-o"></i> Download Our Puppy Owner Questionarie
+                    </a>
+                </div>
+            </div>
         </div>
+        
 
         <!-- Container for Footer-->
         <div class="container" id="footer">

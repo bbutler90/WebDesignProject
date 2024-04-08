@@ -1,12 +1,14 @@
 /* Team 3 - CSS for our Project  */
-body, html{
-    
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        height: 100%;
-      
-    font-family: "Sans Serif Collection";
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body, html{    
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;      
+  font-family: "Sans Serif Collection";
 }
 
 h1, h2, h3, h4, h5, h6{
@@ -50,6 +52,20 @@ a.nav-link.nav-link:HOVER {
     height: 300px;
 }
 
+#contentPlay{
+  color: #fff;
+  max-width: 100% !important;
+  background-image: url("../../resources/images/diagonal_dot.jpg");
+  background-repeat: repeat;
+}
+
+#contentPlay img{  
+  cursor: pointer;
+}
+
+#footer p{
+  font-family: Dancing Script !important;
+}
 
 /* Social Icons */
 .fa {    
@@ -76,8 +92,7 @@ a.nav-link.nav-link:HOVER {
     background: #ea4c89;
     color: white;
   }
-
-
+  
 /* Carrosel CSS */
 
   #carousel-container {
@@ -102,11 +117,11 @@ a.nav-link.nav-link:HOVER {
     top: 50%;
     cursor: pointer;
     padding: 10px;
-    background-color: #ccc;
+    background-color: transparent;
     border: none;
     border-radius: 5px;
   }
-
+  
   #prev-btn {
     left: 0;
   }
@@ -115,6 +130,54 @@ a.nav-link.nav-link:HOVER {
     right: 0;
   }
 
+/* Health List with custom bullet points*/
+.custom-list {
+    list-style-type: none; /* Remove default bullet points */
+	padding-left: 20px; 
+}
+
+.custom-list li {
+    position: relative; 
+    margin-bottom: 10px; 
+    padding-left: 30px; 
+	padding-right: 20px; 
+}
+
+.custom-list li:before {
+    content: '👉'; /* Unicode character for the custom bullet point */
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Hip Score Table Format*/
+.table-bordered thead tr th {
+    background-color: black;
+    color: white;
+}
+
+/* In Text Links on About Us page */
+.link {
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+	position: relative;
+}
+
+.link:hover::after {
+    content: "Press to read more";
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ccc;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+	width: 150px;
+}
 
 /* CUSTOM BREAKPOINTS */
 
@@ -130,4 +193,40 @@ a.nav-link.nav-link:HOVER {
 /* LG breakpoint */
 @media (min-width: 992px) {
     /* CUSTOM DISPLAY */
-	.d-lg-none { display: none!important; }
+	  .d-lg-none { display: none!important; 
+    }
+}
+
+/* Brian Butler - Styling for dog images used on our dogs page. Set a fixed width, and set to fit*/
+  .dog-img {
+    width: 300px; 
+    height: 200px;
+    object-fit: cover;
+  }
+
+  /* Brian Butler: Add a zoom on hover effect */
+  .dog-img:hover {
+    transform: scale(1.1); 
+    transition: transform 0.3s ease-in-out;
+  }
+
+  /* Brian butler Styling for the image in the modal; Set imaage to take up full width and height of its container, make sure image takes up the are of container */
+  #dogModalImage {
+    width: 100%;
+    height: auto; 
+    object-fit: cover;
+  }
+
+  /* Brian Butler - Add some space at the top of button use on available puppes page */
+  .btop-margin {
+    margin-top: 20px;
+  }
+
+  /* Brian Butler - Styling for primary buttons on puppies page. Set thew colour and text colour*/
+  .btn.btn-primary {
+    background-color: #ccc; 
+    border-color: #ccc; 
+    color: #000;
+  }
+}
+

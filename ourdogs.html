@@ -1,4 +1,4 @@
-<!-- Team 3 - Index Page -->
+<!-- Team 3 - Ourdogs Page: Brian Butler -->
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,14 +14,8 @@
         <link rel="stylesheet" href="resources/styles/style.css"/>
         <script src="resources/scripts/script.js"></script>    
         
-        <!-- Fonts Import-->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-        
         <!-- Social Icons Import -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
     </head>    
     
     <body>
@@ -40,7 +34,16 @@
                         <a class="nav-item nav-link" href="index.html">Home</a>
                         <a class="nav-link nav-link" href="aboutus.html">About Us</a>
                         <a class="nav-link nav-link active" href="#">Our Dogs</a>
-                        <a class="nav-link nav-link" href="breedhealth.html">Breed Health</a>
+						<div class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								Breed Health
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<li><a class="dropdown-item" href="breedhealth.html#health-tests">Essential Health Tests</a></li>
+								<li><a class="dropdown-item" href="breedhealth.html#hip-screening">Hip Evaluation</a></li>
+								<li><a class="dropdown-item" href="breedhealth.html#berner-garde">Berner-Garde Foundation</a></li>
+							</ul>
+						</div>
                         <a class="nav-link nav-link" href="availablepuppies.html">Available Puppies</a>
                         <a class="nav-item nav-link" href="contactus.html">Contact Us</a>
                     </div>
@@ -49,8 +52,46 @@
         </div>
 
         <!-- Container for Content -->
-        <div class="container" id="content">
+         <div class="container" id="content">
             <h1 class="text-center">Our Dogs</h1>
+            <p class="text-center">Please enjoy the profle of each of our dogs Ollie, Cindy, and Brita and Alice. Each one of them has a unique story that's as distinctive as their personalities. Our dogs are like family to us and we'd love for you to get to know them too. Simply click on the image to load the dog profile and enjoy reading about our family here at EmeraldSwiss </p>
+            <!-- Gallery Images -->
+        <div class="row">
+            <div class="col-sm-6 col-md-3 text-center">
+                <img class="dog-img" src="resources/images/OllieFace.jpg" data-dog-name="Ollie" data-dog-info="Meet Ollie, our always happy stud dog! He is the Junior Champion male, imported from Lithuania, with a big heart and playful spirit. Ollie is fully health tested, and his loving nature makes him a favourite among our family and friends. He is a proud daddy of our Litter A, passing on all of his best qualities to his beautiful puppies.">
+                <p>Ollie</p>
+            </div>
+            <div class="col-sm-6 col-md-3 text-center">
+                <img class="dog-img" src="resources/images/CindyFace.jpg" data-dog-name="Cindy" data-dog-info="Meet Cindy, the remarkable Alpha female in our kennel. She holds Irish Junior Champion and IKC Centenary Winner titles. Cindy came to us from Lithuania, where she hails from a distinguished lineage of therapy dogs known for their exceptional calmness and strong character. She leaves an unforgettable impression on everyone she meets with her gentle and loving nature.">
+                <p>Cindy</p>
+            </div>
+            <div class="col-sm-6 col-md-3 text-center">
+                <img class="dog-img" src="resources/images/BritaFace.jpg" data-dog-name="Brita" data-dog-info="Meet Brita, the charming and lively addition to our kennel. Despite her smaller size, Brita is true to the breed standard. She is also a show dog embodying elegance and poise in every aspect of her being. Brita possesses a calm and brave character, with a gentle and delicate temperament that endears her to all. She boasts a beautiful face expression that captures hearts wherever she goes.">
+                <p>Brita</p>
+            </div>
+            <div class="col-sm-6 col-md-3 text-center">
+                <img class="dog-img" src="resources/images/AliceFace.jpg" data-dog-name="Alice" data-dog-info="Introducing our baby Alice, the newest and youngest member of the kennel! With her playful spirit and loving temperament, she's already stealing hearts at just a few months old. We can't wait to see her shine in the show ring as she embarks on her promising career.">
+                <p>Alice</p>
+            </div>
+        </div>
+
+        <!-- Dog Modal -->
+        <div class="modal fade" id="dogModal" tabindex="-1" aria-labelledby="dogModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="dogModalLabel">Dog Name</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img id="dogModalImage" src="" alt="Dog Image">
+                        <p id="dogModalInfo">Dog Info</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Container for Footer-->
