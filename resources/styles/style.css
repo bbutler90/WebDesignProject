@@ -199,17 +199,15 @@ a.nav-link.nav-link:HOVER {
 }
 
 /* Brian Butler - Styling for dog images used on our dogs page. Set a fixed width, and set to fit*/
-  .dog-img {
-    width: 300px; 
-    height: 200px;
-    object-fit: cover;
-  }
+.dog-img {
+  width: 100%;
+  height: auto;
+}
 
-  /* Brian Butler: Add a zoom on hover effect */
-  .dog-img:hover {
-    transform: scale(1.1); 
-    transition: transform 0.3s ease-in-out;
-  }
+.dog-img:hover {
+  transform: scale(0.9);
+  transition: transform 0.3s ease-in-out;
+}
 
   /* Brian butler Styling for the image in the modal; Set imaage to take up full width and height of its container, make sure image takes up the are of container */
   #dogModalImage {
@@ -229,4 +227,3 @@ a.nav-link.nav-link:HOVER {
     border-color: #ccc; 
     color: #000;
   }
-
