@@ -118,6 +118,7 @@ a.nav-link.nav-link:HOVER {
     cursor: pointer;
     padding: 10px;
     background-color: transparent;
+    background-color: #ccc;
     border: none;
     border-radius: 5px;
   }
@@ -228,5 +229,5 @@ a.nav-link.nav-link:HOVER {
     border-color: #ccc; 
     color: #000;
   }
-}
+
 
