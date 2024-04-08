@@ -193,7 +193,6 @@ function checkDog(element){
   }else{
     document.getElementById("gameMessage").innerHTML = "<div class='alert alert-warning' role='alert'>You need to click on 'Play!' first.</div>";
   }
-
 }
 
 // Function to rotate carousel evry 5sec
@@ -255,5 +254,4 @@ window.onload = function() {
       document.getElementById('puppyText').textContent = texts[currentIndex];
   });
 }
-
 
