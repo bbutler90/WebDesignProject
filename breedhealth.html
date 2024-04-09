@@ -1,4 +1,4 @@
-<!-- Team 3 - Index Page: Audrius Skema -->
+<!-- Team 3 - Breed Health Page: Audrius Skema -->
 <!DOCTYPE html>
 <html>
     <head>
@@ -91,8 +91,8 @@
 		<!-- Hip Evaluation Text -->			
 		<div class="container" id="contentHealth">
             <div class="row mt-3">
-                <div class="col-md-12 text-center">
-					<h4 id="hip-screening">Hip Evaluation</h4>
+			        <div class="col-md-12 text-justify">
+					<h4 id="hip-screening" class="text-center">Hip Evaluation</h4>
 					<p> Hip Dysplasia is a genetic condition most commonly seen in large breed dogs, including Bernese Mountain Dogs, where the hip joint does not develop correctly. Environmental factors including fast growth, low quality diet as well as excessive weight and increased physical activity can also increase the risk of such dysplasia development. Weakness and pain in the hind legs are the usual clinical signs. The dog appears wobbly and is reluctant to rise from a sitting or lying position. Some adult dogs will limp or become unwilling to climb stairs. These signs can be seen in puppies as early as a few months old but are most common in dogs one to two years of age. However, it often takes years of gradual bone degeneration until a dog becomes clearly symptomatic. While each case is different in terms of progression and symptoms, and such deterioration can also be caused by abnormal wear and tear on healthy dog joints, it is recommended by FCI (World Canine Organisation) to screen all breeding stock regardless of clinical symptoms in order to establish physical changes early and to reduce the risk of producing affected puppies.
 					</p>
 					<p> Generally, the most reliable way of determining the health of a dog’s hips is by having your dog x-rayed and assessed by a specialist. Globally, there are several screening schemes evaluating the severity of hip dysplasia: FCI (Globally), BVA (UK), OFA (North America) and (SV) Germany. The Federation Cynologique Internationale (FCI) system is used by all members in most European countries, Russia, South America, and Asia, from 12 months of age for official scoring (18 months for giant breeds). Each joint is allotted to one of five grades (A-E) that are defined descriptively. The British Veterinary Association (BVA) system is used in Britain, Ireland, Australia and New Zealand for dogs older than 12 months. Nine radiographic criteria are evaluated and added together in the final report to account for the score between 0 and 52 points for each joint. Such an approach creates a score based on individual parameters in each hip, including both those which describe subluxation and those which describe secondary, degenerative change. 
@@ -101,90 +101,98 @@
 					</p>
 					<p> Final grading is based on the appearance of the worst of the two hips for FCI, OFA, Germany and Switzerland, while for BVA the scoring points of both joints are added together representing the final score (excl. Australia). Under FCI regulations grades A and B are considered normal joints, whereas the grades D and E are dysplastic, while grade C represent mild dysplasia calling for breed-specific breeding strategies.
 					</p>
-					<h6> Approximate Correlation Between Different Hip Scoring Schemes</h6>
-				<table class="table table-bordered"> <!-- Hip Evaluation Summary Table -->	
-					<thead>
-						<tr>
-							<th>FCI</th>
-							<th>BVA (Single Joint)</th>
-							<th>OFA</th>
-							<th>SV (Germany)</th>
-							<th>Swiss</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>A (Excellent/Normal)</td>
-							<td>0</td>
-							<td>Excellent</td>
-							<td>A1 (Normal)</td>
-							<td>0</td>
-						</tr>
-						<tr>
-							<td></td>
-							<td>1 - 3</td>
-							<td>Good</td>
-							<td>A2 (Normal)</td>
-							<td>1 - 2</td>
-						</tr>
-						<tr>
-							<td>B (Good/ Borderline)</td>
-							<td>4 - 6</td>
-							<td>Fair</td>
-							<td>B1 (Fast Normal)</td>
-							<td>3 - 4</td>
-						</tr>
-						<tr>
-							<td></td>
-							<td>7 - 8</td>
-							<td>Borderline</td>
-							<td>B2 (Fast Normal)</td>
-							<td>5 - 6</td>
-						</tr>
-						<tr>
-							<td>C (Mild Dysplasia)</td>
-							<td>9 - 12</td>
-							<td>Mild</td>
-							<td>C1 (Noch Zugelassen)</td>
-							<td>7 - 9</td>
-						</tr>
-						<tr>
-							<td></td>
-							<td>13 - 18</td>
-							<td>Mild</td>
-							<td>C2 (Noch Zugelassen)</td>
-							<td>10 - 12</td>
-						</tr>
-						<tr>
-							<td>D (Moderate Dysplasia)</td>
-							<td>19 - 24</td>
-							<td>Moderate</td>
-							<td>D1 (Mittlere)</td>
-							<td>13 - 15</td>
-						</tr>
-						<tr>
-							<td></td>
-							<td>25 - 30</td>
-							<td>Moderate</td>
-							<td>D2 (Mittlere)</td>
-							<td>16 - 18</td>
-						</tr>
-						<tr>
-							<td>E (Severe Dysplasia)</td>
-							<td>> 30</td>
-							<td>Severe</td>
-							<td>E1 (Schwere)</td>
-							<td>19 - 21</td>
-						</tr>
-						<tr>
-							<th></th>
-							<th></th>
-							<td>Severe</td>
-							<td>E2 (Schwere)</td>
-							<td>22 - 44</td>
-						</tr>
-					</tbody>
-				</table>
+					<h6 class="text-center"> Press To Compare Commonly Used Hip Scoring Schemes</h6>
+				</div>
+				
+				<div class="container mt-3" id="contentHealth">
+					<div class="row">
+						<div class="col-md-12 text-center">	
+							<button id="toggleTableBtn" class="btn btn-success" style="margin-bottom: 20px;">Toggle Table</button>
+							<table id="healthTable" class="table table-bordered d-none"> <!-- Hip Evaluation Summary Table -->
+								<thead>
+									<tr>
+										<th>FCI</th>
+										<th>BVA (Single Joint)</th>
+										<th>OFA</th>
+										<th>SV (Germany)</th>
+										<th>Swiss</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>A (Excellent/Normal)</td>
+										<td>0</td>
+										<td>Excellent</td>
+										<td>A1 (Normal)</td>
+										<td>0</td>
+									</tr>
+									<tr>
+										<td></td>
+										<td>1 - 3</td>
+										<td>Good</td>
+										<td>A2 (Normal)</td>
+										<td>1 - 2</td>
+									</tr>
+									<tr>
+										<td>B (Good/ Borderline)</td>
+										<td>4 - 6</td>
+										<td>Fair</td>
+										<td>B1 (Fast Normal)</td>
+										<td>3 - 4</td>
+									</tr>
+									<tr>
+										<td></td>
+										<td>7 - 8</td>
+										<td>Borderline</td>
+										<td>B2 (Fast Normal)</td>
+										<td>5 - 6</td>
+									</tr>
+									<tr>
+										<td>C (Mild Dysplasia)</td>
+										<td>9 - 12</td>
+										<td>Mild</td>
+										<td>C1 (Noch Zugelassen)</td>
+										<td>7 - 9</td>
+									</tr>
+									<tr>
+										<td></td>
+										<td>13 - 18</td>
+										<td>Mild</td>
+										<td>C2 (Noch Zugelassen)</td>
+										<td>10 - 12</td>
+									</tr>
+									<tr>
+										<td>D (Moderate Dysplasia)</td>
+										<td>19 - 24</td>
+										<td>Moderate</td>
+										<td>D1 (Mittlere)</td>
+										<td>13 - 15</td>
+									</tr>
+									<tr>
+										<td></td>
+										<td>25 - 30</td>
+										<td>Moderate</td>
+										<td>D2 (Mittlere)</td>
+										<td>16 - 18</td>
+									</tr>
+									<tr>
+										<td>E (Severe Dysplasia)</td>
+										<td>> 30</td>
+										<td>Severe</td>
+										<td>E1 (Schwere)</td>
+										<td>19 - 21</td>
+									</tr>
+									<tr>
+										<th></th>
+										<th></th>
+										<td>Severe</td>
+										<td>E2 (Schwere)</td>
+										<td>22 - 44</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -192,8 +200,8 @@
 		<!-- Berner-Garde Text -->	
 		<div class="container" id="contentHealth">
             <div class="row mt-3">
-                <div class="col-md-12 text-center">
-					<h4 id="berner-garde">Berner-Garde Foundation</h4>
+                <div class="col-md-12 text-justify">
+					<h4 id="berner-garde" class="text-center">Berner-Garde Foundation</h4>
 					<p> Berner-Garde’s mission is to ensure all Bernese Mountain Dogs have a long and healthy lifespan of 12-14 years. In order to advance on the health issues, a global health and pedigree database was launched in 1995 which has become an invaluable resource aiding the reduction of genetic diseases in the breed, through voluntary submissions from owners, breeders and other sources compiling the information of over 200,000 dogs. This open sharing of information on affected, as well as healthy dogs is unique and has proved to be vital to the Bernese community, veterinarians and scientists with an interests in the breed’s health.
 					</p>
 					<p> Throughout the years it evolved into a reputable tool to assist responsible Bernese breeders in their research and planning for genetically healthy lines in the future. Additionally, potential Bernese puppy buyers find it an excellent resource to verify that the breeder they are talking with performs genetic testing on dogs they choose for breeding. Beyond that, a buyer can check if the parents of puppies have good hips and elbows, as well as other genetic tests.
@@ -207,7 +215,7 @@
 					</div>
 					
 					<!-- Press on Image Link to Organisation Website -->
-					<h6> To Read More Click on Berner-Garde Logo </h6>
+					<h6 class="text-center"> To Read More Click on Berner-Garde Logo </h6>
 					<div class="text-center">
 						<a href="https://www.bernergarde.org" target="_blank">
 							<img src="resources\images\bglogored.jpg" title="Go To Bernergarde.org" alt="Bernergarde" class="img-fluid">

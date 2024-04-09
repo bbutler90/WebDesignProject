@@ -131,7 +131,7 @@ a.nav-link.nav-link:HOVER {
     right: 0;
   }
 
-/* Health List with custom bullet points*/
+/* Audrius Skema - Health List with custom bullet points*/
 .custom-list {
     list-style-type: none; /* Remove default bullet points */
 	padding-left: 20px; 
@@ -152,13 +152,13 @@ a.nav-link.nav-link:HOVER {
     transform: translateY(-50%);
 }
 
-/* Hip Score Table Format*/
+/* Audrius Skema - Hip Score Table Format */
 .table-bordered thead tr th {
     background-color: black;
     color: white;
 }
 
-/* In Text Links on About Us page */
+/* Audrius Skema - In Text Popups for Links on About Us page */
 .link {
     color: black;
     font-weight: bold;
@@ -172,14 +172,50 @@ a.nav-link.nav-link:HOVER {
     bottom: -25px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #ccc;
+    background-color: #ececec;
     color: black;
     padding: 5px 10px;
     border-radius: 5px;
+	z-index: 1;
     font-size: 14px;
 	width: 150px;
+	text-align: center;
 }
 
+/* Audrius Skema - Justified text for About Us and Breed Health pages */
+.text-justify{text-align:justify !important;}
+
+/* Audrius Skema - Quote styling on About Us page */
+#quoteText {
+	text-align: center;
+	font-family: 'Dancing Script', cursive;
+	font-weight: bold;
+	font-size: 24px; 
+	color: #03AC13; /* Shamrock */
+}
+
+#quoteText {
+    cursor: pointer; /* Set cursor to pointer when hovering over the quote */
+}
+
+/* Audrius Skema - Quotes Popup styling on About Us page */
+#quotePopup {
+	display: none;
+	position: fixed;
+	background-color: #ececec; /* very light grey */
+	padding: 20px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Add a shadow effect */
+	z-index: 1; /* Ensure the popup appears on top of other elements */
+	max-width: 80vw; /* Set a maximum width relative to viewport width */
+	color: black; 
+	font-style: italic; 
+	left: 50%; 
+	transform: translateX(-50%);
+	text-align: center;
+}
+		
 /* CUSTOM BREAKPOINTS */
 
 /* SM breakpoint */
@@ -229,5 +265,4 @@ a.nav-link.nav-link:HOVER {
     border-color: #ccc; 
     color: #000;
   }
-
 
