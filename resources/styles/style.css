@@ -166,7 +166,7 @@ a.nav-link.nav-link:HOVER {
 	position: relative;
 }
 
-.link:hover::after {
+.link:hover:after {
     content: "Press to read more";
     position: absolute;
     bottom: -25px;
