@@ -104,6 +104,20 @@ background-repeat: repeat;
 cursor: pointer;
 }
 
+/* .shake and @keyframes shake was created to help on the mini game*/
+.shake {
+  animation: shake 0.5s infinite alternate;
+}
+ 
+@keyframes shake {
+  from {
+    transform: translateX(-5px);
+  }
+  to {
+    transform: translateX(5px);
+  }
+}
+
 /* Carrosel CSS */
 
 #carousel-container {
