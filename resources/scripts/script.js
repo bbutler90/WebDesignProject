@@ -45,10 +45,111 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+/*************************************************/
+/*   JavaScript for the Contact US page          */
+/*         Created by Joao Cordio                */
+/*************************************************/
+// JavaScript for the first question on the form on contactus.html
+function likeDog(){
+
+  var option = document.getElementById("likeBernese").value; 
+  
+  if(option == "yes"){    
+    
+    //Hide "Wrong Option message"
+    document.getElementById("wrongAnswer").classList.remove('d-block');
+    document.getElementById("wrongAnswer").classList.add('d-none');
+
+    //Show Form Options	
+    document.getElementById("formOptions").classList.remove('d-none');
+    document.getElementById("formOptions").classList.add('d-block');   
+
+  }else if (option == "no"){
+
+    //Hide Form Options
+    document.getElementById("formOptions").classList.add('d-none');
+    document.getElementById("formOptions").classList.remove('d-block');
+    
+    //Show "Wrong Option message"
+    document.getElementById("wrongAnswer").classList.remove('d-none');
+    document.getElementById("wrongAnswer").classList.add('d-block'); 
+
+  }else{    
+
+    //Hide "Wrong Option message"
+    document.getElementById("wrongAnswer").classList.remove('d-block');
+    document.getElementById("wrongAnswer").classList.add('d-none');
+
+    //Hide Form Options	  
+    document.getElementById("formOptions").classList.add('d-none');
+    document.getElementById("formOptions").classList.remove('d-block');  
+  }
+}
+
+// JavaScript for the form on contactus.html
+function contactForm(){
+  
+	//Get name and Email
+	var form = document.getElementById('myForm');
+	var name = document.getElementById("name").value;
+	var email = document.getElementById("email").value;
+	var subscription = document.getElementById("subscribe").value;
+	var options = form.elements['dogGender'];
+	var selectedOption;
+
+  for (var i = 0; i < options.length; i++) {
+    if (options[i].checked) {
+      selectedOption = options[i].value;
+    }
+  }
+
+  switch (isValidEmail(email)) {
+    case true:
+      if ((name) && (email) && (subscription) && (selectedOption)){
+        //Hide Form
+        document.getElementById("myForm").style.display="none";    
+        //Show message
+        document.getElementById("myContentForm").innerHTML = "<div class='alert alert-success' role='alert'>" + name + ", thank you for your details. We will be in touch via " + email + " shortly.</div>";    
+        break;
+      }else{  
+          alert("Something went wrong, please try again alter.")
+      }
+    case false:
+        alert("Please insert a valid email address.")
+        break;
+    default:
+        console.log("If all else fails");
+        break;
+  }
+  
+}
+
+//Functions created to avoid emails like "test@test" without .com
+function isValidEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
+
+//Functions startShake/stopShake/wait was created by Cordio to help user see that the game is starting
+function startShake(id) {
+  document.getElementById(id).classList.add('shake');  
+}
+
+function stopShake(id) {
+  document.getElementById(id).classList.remove('shake');   
+}
+
+function wait(id){
+  setTimeout(() => {
+    stopShake(id);
+  }, 1500);  
+}
+
 // Script for the Mini Game on index.html
 function play(){
 
-  //
+  //Clean the modal message
   document.getElementById("gameMessage").innerHTML = '';
 
   const div = document.getElementById('contentPlay');
@@ -56,6 +157,17 @@ function play(){
   const count = images.length;
   let numbers = [];
   let numToCheck = "1";
+
+  
+  // Start shake after 1 second
+  startShake('imageGame0');
+  startShake('imageGame1');
+  startShake('imageGame2');
+
+  // Stop shake after 5 second  
+  wait('imageGame0');
+  wait('imageGame1');
+  wait('imageGame2');
   
     
   images.forEach(function(image) {
@@ -133,75 +245,65 @@ function checkDog(element){
   }else{
     document.getElementById("gameMessage").innerHTML = "<div class='alert alert-warning' role='alert'>You need to click on 'Play!' first.</div>";
   }
-
 }
 
-/****************************************/
-/*   JavaScript for on contactus.html   */
-/*       Created by Joao Cordio         */
-/****************************************/
-// JavaScript for the first question on the form on contactus.html
-function likeDog(){
+// Function to rotate carousel evry 5sec
+setInterval(function() {
+    document.getElementById('next-btn').click();
+}, 5000);
 
-  var option = document.getElementById("likeBernese").value; 
+// Brian Butler: script to pop up a modal with dog info
+document.addEventListener('DOMContentLoaded', function() {
+  // Loop over all dog images
+  document.querySelectorAll('.dog-img').forEach(function(dogImg) {
+      // When an image is clicked get the dog's name, info, and image from the clicked image
+      dogImg.addEventListener('click', function() {
+          
+          var dogName = dogImg.getAttribute('data-dog-name');
+          var dogInfo = dogImg.getAttribute('data-dog-info');
+          var dogImageSrc = dogImg.getAttribute('src');
+
+          // Update the modal with the dog's info and image
+          document.getElementById('dogModalLabel').textContent = dogName;
+          document.getElementById('dogModalInfo').textContent = dogInfo;
+          document.getElementById('dogModalImage').setAttribute('src', dogImageSrc);
+
+          // Show modal
+          var dogModal = new bootstrap.Modal(document.getElementById('dogModal'));
+          dogModal.show();
+      });
+  });
+});
+
+//Brian Butler - Script for the carousel on the avaialblepuppies.html page
+window.onload = function() {
+  // Image paths
+  var images = ['resources/images/puppies1.jpg', 'resources/images/puppies2.jpg', 'resources/images/puppies3.jpg'];
   
-  if(option == "yes"){    
-    
-    //Hide "Wrong Option message"
-    document.getElementById("wrongAnswer").classList.remove('d-block');
-    document.getElementById("wrongAnswer").classList.add('d-none');
-
-    //Show Form Options	
-    document.getElementById("formOptions").classList.remove('d-none');
-    document.getElementById("formOptions").classList.add('d-block');   
-
-  }else if (option == "no"){
-
-    //Hide Form Options
-    document.getElementById("formOptions").classList.add('d-none');
-    document.getElementById("formOptions").classList.remove('d-block');
-    
-    //Show "Wrong Option message"
-    document.getElementById("wrongAnswer").classList.remove('d-none');
-    document.getElementById("wrongAnswer").classList.add('d-block'); 
-
-  }else{    
-
-    //Hide "Wrong Option message"
-    document.getElementById("wrongAnswer").classList.remove('d-block');
-    document.getElementById("wrongAnswer").classList.add('d-none');
-
-    //Hide Form Options	  
-    document.getElementById("formOptions").classList.add('d-none');
-    document.getElementById("formOptions").classList.remove('d-block');  
-  }
-}
-
-// JavaScript for the form on contactus.html
-function contactForm(){
+  // Text for each image
+  var texts = ['We are always excited when we have new litters - each one filled with adorable puppies ready to find their forever homes. Take a moment to read about adopting one of our puppies.', 'Our goal is to find each puppy a loving home where they can be part of the family. The dog’s welfare is our foremost consideration before a choice is made for placement', 'We have new litters born regularly, if you are interested in adopting a puppy please fill out the form below and we will be in touch. The PDF questionarie is available to download by clicking on the button below.'];
   
-	//Get name and Email
-	var form = document.getElementById('myForm');
-  var name = document.getElementById("name").value;
-	var email = document.getElementById("email").value;
-  var subscription = document.getElementById("subscribe").value;
-  var options = form.elements['dogGender'];
-  var selectedOption;
+  // Start at the first image
+  var currentIndex = 0;
 
-  for (var i = 0; i < options.length; i++) {
-    if (options[i].checked) {
-      selectedOption = options[i].value;
-    }
-  }
+  // Handle prevButton clicks
+  document.getElementById('prevButton').addEventListener('click', function() {
+      // Go to the previous image, or the last one if we're at the start
+      currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+      
+      // Show the current image and text
+      document.getElementById('puppyImage').src = images[currentIndex];
+      document.getElementById('puppyText').textContent = texts[currentIndex];
+  });
 
-  if ((name) && (email) && (subscription) && (selectedOption)){
-    //Hide Form
-	  document.getElementById("myForm").style.display="none";    
-    //Show message
-    document.getElementById("myContentForm").innerHTML = "<div class='alert alert-success' role='alert'>" + name + ", thank you for your details. We will be in touch via " + email + " shortly.</div>";
-
-  }else{
-    alert("Something went wrong, please try again alter.")
-  }
-	
+  // Handle nextButton clicks
+  document.getElementById('nextButton').addEventListener('click', function() {
+      // Go to the next image, or the first one if we're at the end
+      currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+      
+      // Show the current image and text
+      document.getElementById('puppyImage').src = images[currentIndex];
+      document.getElementById('puppyText').textContent = texts[currentIndex];
+  });
 }
+
