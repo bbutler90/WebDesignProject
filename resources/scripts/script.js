@@ -1,11 +1,17 @@
 //Team 3 - Scripts for our Project
 
-//Function for testing
+/***************************/
+/*   CSS for Footer.HTML   */
+/* Created by Joao Cordio  */
+/***************************/
 function alertTest(){  
   alert("test");
 }
 
-// JavaScript for the carousel on Index.html
+/*************************************************/
+/*   JavaScript for the carousel on Index.html   */
+/*         Created by Joao Cordio                */
+/*************************************************/
 // Code must be inside of the "DOMContentLoaded" otherwise an error is showing up, as the variable numImages needs the page loaded to be allocated 
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -39,6 +45,10 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+/*************************************************/
+/*   JavaScript for the Contact US page          */
+/*         Created by Joao Cordio                */
+/*************************************************/
 // JavaScript for the first question on the form on contactus.html
 function likeDog(){
 
@@ -93,22 +103,53 @@ function contactForm(){
     }
   }
 
-  if ((name) && (email) && (subscription) && (selectedOption)){
-    //Hide Form
-	  document.getElementById("myForm").style.display="none";    
-    //Show message
-    document.getElementById("myContentForm").innerHTML = "<div class='alert alert-success' role='alert'>" + name + ", thank you for your details. We will be in touch via " + email + " shortly.</div>";
-
-  }else{
-    alert("Something went wrong, please try again alter.")
+  switch (isValidEmail(email)) {
+    case true:
+      if ((name) && (email) && (subscription) && (selectedOption)){
+        //Hide Form
+        document.getElementById("myForm").style.display="none";    
+        //Show message
+        document.getElementById("myContentForm").innerHTML = "<div class='alert alert-success' role='alert'>" + name + ", thank you for your details. We will be in touch via " + email + " shortly.</div>";    
+        break;
+      }else{  
+          alert("Something went wrong, please try again alter.")
+      }
+    case false:
+        alert("Please insert a valid email address.")
+        break;
+    default:
+        console.log("If all else fails");
+        break;
   }
-	
+  
+}
+
+//Functions created to avoid emails like "test@test" without .com
+function isValidEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
+
+//Functions startShake/stopShake/wait was created by Cordio to help user see that the game is starting
+function startShake(id) {
+  document.getElementById(id).classList.add('shake');  
+}
+
+function stopShake(id) {
+  document.getElementById(id).classList.remove('shake');   
+}
+
+function wait(id){
+  setTimeout(() => {
+    stopShake(id);
+  }, 1500);  
 }
 
 // Script for the Mini Game on index.html
 function play(){
 
-  //
+  //Clean the modal message
   document.getElementById("gameMessage").innerHTML = '';
 
   const div = document.getElementById('contentPlay');
@@ -116,6 +157,17 @@ function play(){
   const count = images.length;
   let numbers = [];
   let numToCheck = "1";
+
+  
+  // Start shake after 1 second
+  startShake('imageGame0');
+  startShake('imageGame1');
+  startShake('imageGame2');
+
+  // Stop shake after 5 second  
+  wait('imageGame0');
+  wait('imageGame1');
+  wait('imageGame2');
   
     
   images.forEach(function(image) {
