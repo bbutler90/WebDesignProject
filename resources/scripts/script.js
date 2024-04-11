@@ -1,11 +1,17 @@
 //Team 3 - Scripts for our Project
 
-//Function for testing
+/***************************/
+/*   CSS for Footer.HTML   */
+/* Created by Joao Cordio  */
+/***************************/
 function alertTest(){  
   alert("test");
 }
 
-// JavaScript for the carousel on Index.html
+/*************************************************/
+/*   JavaScript for the carousel on Index.html   */
+/*         Created by Joao Cordio                */
+/*************************************************/
 // Code must be inside of the "DOMContentLoaded" otherwise an error is showing up, as the variable numImages needs the page loaded to be allocated 
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -39,6 +45,10 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+/*************************************************/
+/*   JavaScript for the Contact US page          */
+/*         Created by Joao Cordio                */
+/*************************************************/
 // JavaScript for the first question on the form on contactus.html
 function likeDog(){
 
@@ -93,22 +103,53 @@ function contactForm(){
     }
   }
 
-  if ((name) && (email) && (subscription) && (selectedOption)){
-    //Hide Form
-	  document.getElementById("myForm").style.display="none";    
-    //Show message
-    document.getElementById("myContentForm").innerHTML = "<div class='alert alert-success' role='alert'>" + name + ", thank you for your details. We will be in touch via " + email + " shortly.</div>";
-
-  }else{
-    alert("Something went wrong, please try again alter.")
+  switch (isValidEmail(email)) {
+    case true:
+      if ((name) && (email) && (subscription) && (selectedOption)){
+        //Hide Form
+        document.getElementById("myForm").style.display="none";    
+        //Show message
+        document.getElementById("myContentForm").innerHTML = "<div class='alert alert-success' role='alert'>" + name + ", thank you for your details. We will be in touch via " + email + " shortly.</div>";    
+        break;
+      }else{  
+          alert("Something went wrong, please try again alter.")
+      }
+    case false:
+        alert("Please insert a valid email address.")
+        break;
+    default:
+        console.log("If all else fails");
+        break;
   }
-	
+  
+}
+
+//Functions created to avoid emails like "test@test" without .com
+function isValidEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
+
+//Functions startShake/stopShake/wait was created by Cordio to help user see that the game is starting
+function startShake(id) {
+  document.getElementById(id).classList.add('shake');  
+}
+
+function stopShake(id) {
+  document.getElementById(id).classList.remove('shake');   
+}
+
+function wait(id){
+  setTimeout(() => {
+    stopShake(id);
+  }, 1500);  
 }
 
 // Script for the Mini Game on index.html
 function play(){
 
-  //
+  //Clean the modal message
   document.getElementById("gameMessage").innerHTML = '';
 
   const div = document.getElementById('contentPlay');
@@ -116,6 +157,17 @@ function play(){
   const count = images.length;
   let numbers = [];
   let numToCheck = "1";
+
+  
+  // Start shake after 1 second
+  startShake('imageGame0');
+  startShake('imageGame1');
+  startShake('imageGame2');
+
+  // Stop shake after 5 second  
+  wait('imageGame0');
+  wait('imageGame1');
+  wait('imageGame2');
   
     
   images.forEach(function(image) {
@@ -195,11 +247,96 @@ function checkDog(element){
   }
 }
 
-// Function to rotate carousel evry 5sec
-setInterval(function() {
-    document.getElementById('next-btn').click();
-}, 5000);
+// Audrius Skema: Function to rotate carousel evry 5sec
+document.addEventListener('DOMContentLoaded', function() {
+    setInterval(function() {
+        document.getElementById('next-btn').click();
+    }, 5000);
+});
 
+// Audrius Skema: Script to Toggle Hip Scoring table with the button
+document.addEventListener("DOMContentLoaded", function() {
+    var toggleButton = document.getElementById("toggleTableBtn");
+    var healthTable = document.getElementById("healthTable");
+
+    toggleButton.addEventListener("click", function() {
+        // Toggle the visibility of the table
+        healthTable.classList.toggle("d-none");
+    });
+});
+
+// Audrius Skema: Prepopulated Array with 5 Quotes about Dogs
+var quotes = [
+	"\"Dogs are better than human beings because they know a lot, but do not tell\" – Emily Dickinson",
+	"\"A dog is the only thing on earth that loves you more than you love yourself\" – Josh Billings",
+	"\"Money can buy you a fine dog, but only love can make him wag his tail\" – Kinky Friedman",
+	"\"Animals are such agreeable friends. They ask no questions, they pass no criticisms\" – George Eliot",
+	"\"When I walk my dog, people always ask if we’re twins as we look so alike\" – Jarod Kintz"
+];
+		
+
+// Audrius Skema: Script to display quote with fading effect
+document.addEventListener('DOMContentLoaded', function () {
+	var index = 0;
+	var quoteElement = document.getElementById("quoteText");
+	var fadeInterval;
+
+	// Function to display the current quote
+	function displayQuote() {
+		quoteElement.innerHTML = quotes[index];
+	}
+
+	// Function to fade quote
+	function fade() {
+		// Fade out
+		quoteElement.style.opacity = 0;
+		setTimeout(function () {
+			// Increment to navigate to the next quote
+			index = (index + 1) % quotes.length;
+			displayQuote();
+			quoteElement.style.opacity = 1;
+		}, 500); // Fade duration
+	}
+
+	// Display the initial quote
+	displayQuote();
+
+	// Call fade function every 5 sec
+	fadeInterval = setInterval(fade, 5000); 
+});
+
+// Audrius Skema: Script to handle the Quote Popup
+document.addEventListener('DOMContentLoaded', function () {
+    var quoteElement = document.getElementById("quoteText");
+    var quotePopup = document.getElementById("quotePopup");
+
+    // Function to display the entire list of quotes in the popup
+    function displayQuotes(quotes) {
+        quotePopup.innerHTML = ''; // Clear existing content
+        quotes.forEach(function (quote) { // Iterate over each quote in the array
+            var listItem = document.createElement('p'); // Create new paragraph for each quote
+            listItem.textContent = quote;
+            quotePopup.appendChild(listItem); // Append the paragraph to the popup
+        }); 
+    }
+
+    // Event listener for hovering over the quote element to display the popup
+    quoteElement.addEventListener("mouseover", function (event) {
+        var rect = quoteElement.getBoundingClientRect(); // Position relative to the viewport
+        var topPosition = rect.bottom + window.pageYOffset; // Position of the popup calculated adding the bottom position of the quote element to the vertical scroll offset
+        
+        // Set position and display the popup
+        quotePopup.style.top = topPosition + "px"; //Set position
+        quotePopup.style.display = 'block'; // Make popup visible
+		displayQuotes(quotes); // Pass the quotes array as an argument
+    });
+
+    // Event listener for moving the mouse out of the quote element to hide the popup
+    quoteElement.addEventListener("mouseout", function () {
+        quotePopup.style.display = 'none';
+    });
+});
+	
 // Brian Butler: script to pop up a modal with dog info
 document.addEventListener('DOMContentLoaded', function() {
   // Loop over all dog images
