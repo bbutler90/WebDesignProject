@@ -266,11 +266,11 @@ cursor: pointer;
     }
 }
 
-/* Brian Butler - Styling for dog images used on our dogs page. Set a fixed width, and set to fit*/
-  .dog-img {
-    width: 100%; 
-    height: auto;
-  }
+/*Styling for dog images used on our dogs page. Set a fixed width, and set to fit*/
+.dog-img {
+  width: 70%;
+  height: auto;
+}
 
   /* Brian Butler: Add a zoom on hover effect */
   .dog-img:hover {
@@ -279,21 +279,14 @@ cursor: pointer;
     cursor: pointer;
   }
 
-  /* Brian butler Styling for the image in the modal; Set imaage to take up full width and height of its container, make sure image takes up the are of container */
+  /*Styling for the image in the modal; Set imaage to take up full width and height of its container,*/
   #dogModalImage {
     width: 100%;
     height: auto; 
     object-fit: cover;
   }
 
-  /* Brian Butler - Add some space at the top of button use on available puppes page */
+  /*Add some space at the top of button used on available puppes page */
   .btop-margin {
     margin-top: 20px;
-  }
-
-  /* Brian Butler - Styling for primary buttons on puppies page. Set thew colour and text colour*/
-  .btn.btn-primary {
-    background-color: #ccc; 
-    border-color: #ccc; 
-    color: #000;
   }
