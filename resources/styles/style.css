@@ -72,6 +72,7 @@ a.nav-link.nav-link:HOVER {
   cursor: pointer;
   outline: none;
   transition: opacity 0.3s ease-in-out;
+  z-index: 9999;
 }
 
 #btnTopo:hover {
