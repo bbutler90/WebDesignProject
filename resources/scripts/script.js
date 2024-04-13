@@ -247,11 +247,96 @@ function checkDog(element){
   }
 }
 
-// Function to rotate carousel evry 5sec
-setInterval(function() {
-    document.getElementById('next-btn').click();
-}, 5000);
+// Audrius Skema: Function to rotate carousel evry 5sec
+document.addEventListener('DOMContentLoaded', function() {
+    setInterval(function() {
+        document.getElementById('next-btn').click();
+    }, 5000);
+});
 
+// Audrius Skema: Script to Toggle Hip Scoring table with the button
+document.addEventListener("DOMContentLoaded", function() {
+    var toggleButton = document.getElementById("toggleTableBtn");
+    var healthTable = document.getElementById("healthTable");
+
+    toggleButton.addEventListener("click", function() {
+        // Toggle the visibility of the table
+        healthTable.classList.toggle("d-none");
+    });
+});
+
+// Audrius Skema: Prepopulated Array with 5 Quotes about Dogs
+var quotes = [
+	"\"Dogs are better than human beings because they know a lot, but do not tell\" – Emily Dickinson",
+	"\"A dog is the only thing on earth that loves you more than you love yourself\" – Josh Billings",
+	"\"Money can buy you a fine dog, but only love can make him wag his tail\" – Kinky Friedman",
+	"\"Animals are such agreeable friends. They ask no questions, they pass no criticisms\" – George Eliot",
+	"\"When I walk my dog, people always ask if we’re twins as we look so alike\" – Jarod Kintz"
+];
+		
+
+// Audrius Skema: Script to display quote with fading effect
+document.addEventListener('DOMContentLoaded', function () {
+	var index = 0;
+	var quoteElement = document.getElementById("quoteText");
+	var fadeInterval;
+
+	// Function to display the current quote
+	function displayQuote() {
+		quoteElement.innerHTML = quotes[index];
+	}
+
+	// Function to fade quote
+	function fade() {
+		// Fade out
+		quoteElement.style.opacity = 0;
+		setTimeout(function () {
+			// Increment to navigate to the next quote
+			index = (index + 1) % quotes.length;
+			displayQuote();
+			quoteElement.style.opacity = 1;
+		}, 500); // Fade duration
+	}
+
+	// Display the initial quote
+	displayQuote();
+
+	// Call fade function every 5 sec
+	fadeInterval = setInterval(fade, 5000); 
+});
+
+// Audrius Skema: Script to handle the Quote Popup
+document.addEventListener('DOMContentLoaded', function () {
+    var quoteElement = document.getElementById("quoteText");
+    var quotePopup = document.getElementById("quotePopup");
+
+    // Function to display the entire list of quotes in the popup
+    function displayQuotes(quotes) {
+        quotePopup.innerHTML = ''; // Clear existing content
+        quotes.forEach(function (quote) { // Iterate over each quote in the array
+            var listItem = document.createElement('p'); // Create new paragraph for each quote
+            listItem.textContent = quote;
+            quotePopup.appendChild(listItem); // Append the paragraph to the popup
+        }); 
+    }
+
+    // Event listener for hovering over the quote element to display the popup
+    quoteElement.addEventListener("mouseover", function (event) {
+        var rect = quoteElement.getBoundingClientRect(); // Position relative to the viewport
+        var topPosition = rect.bottom + window.pageYOffset; // Position of the popup calculated adding the bottom position of the quote element to the vertical scroll offset
+        
+        // Set position and display the popup
+        quotePopup.style.top = topPosition + "px"; //Set position
+        quotePopup.style.display = 'block'; // Make popup visible
+		displayQuotes(quotes); // Pass the quotes array as an argument
+    });
+
+    // Event listener for moving the mouse out of the quote element to hide the popup
+    quoteElement.addEventListener("mouseout", function () {
+        quotePopup.style.display = 'none';
+    });
+});
+	
 // Brian Butler: script to pop up a modal with dog info
 document.addEventListener('DOMContentLoaded', function() {
   // Loop over all dog images
@@ -281,7 +366,7 @@ window.onload = function() {
   var images = ['resources/images/puppies1.jpg', 'resources/images/puppies2.jpg', 'resources/images/puppies3.jpg'];
   
   // Text for each image
-  var texts = ['We are always excited when we have new litters - each one filled with adorable puppies ready to find their forever homes. Take a moment to read about adopting one of our puppies.', 'Our goal is to find each puppy a loving home where they can be part of the family. The dog’s welfare is our foremost consideration before a choice is made for placement', 'We have new litters born regularly, if you are interested in adopting a puppy please fill out the form below and we will be in touch. The PDF questionarie is available to download by clicking on the button below.'];
+  var texts = ['We are always excited when we have new litters - each one filled with adorable puppies ready to find their forever homes. Take a moment to read about adopting one of our puppies. Each of our puppies is given the utmost care and attention, ensuring they grow up healthy and happy. We work closely with veterinarians to ensure all our puppies are in the best of health before they go to their new homes. We also provide ongoing support and advice for new owners, helping you settle your new furry friend into your home. Our puppies are not just pets, they are family, and we are committed to helping each one find the perfect home. So why wait? Start the journey of adding a new member to your family today.', 'Our goal is to find each puppy a loving home where they can be part of the family. The dog’s welfare is our foremost consideration before a choice is made for placement. We believe that every puppy deserves a home where they will be loved, cared for, and treated as a member of the family. We take great care in assessing potential homes, ensuring that they can provide the necessary care and environment for our puppies. We prioritize the puppy\'s health, happiness, and well-being above all else. We also offer support and guidance to new owners, helping them understand the responsibilities that come with owning a dog.', 'We have new litters born regularly, and if you are interested in adopting a puppy, please fill out the form below and we will be in touch. The PDF questionnaire is available to download by clicking on the button below. We understand that adopting a puppy is a big decision, and we\'re here to help you every step of the way, We aim to provide all the necessary information to help you make an informed decision. Our puppies are raised with love and care, and we want to ensure they go to homes that can provide the same. So, if you\'re ready to open your heart and home to a new furry friend, fill out the form and start the adoption process today.'];
   
   // Start at the first image
   var currentIndex = 0;
