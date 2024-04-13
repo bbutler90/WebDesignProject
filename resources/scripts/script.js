@@ -161,19 +161,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 // code to a button where user can go to the top
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    document.getElementById("btnTopo").style.display = "block";
+window.addEventListener('scroll', function() {
+  if (window.scrollY > 0) {
+    document.getElementById('btnTopo').style.display = 'block';
   } else {
-    document.getElementById("btnTopo").style.display = "none";
+    document.getElementById('btnTopo').style.display = 'none';
   }
-}
+});
 
 function scrollToTop() {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
 }
 // >>>> End: Scroll to the top button Code <<<<
 
