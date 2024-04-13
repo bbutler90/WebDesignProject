@@ -17,6 +17,16 @@ body, html{
   font-family: "Sans Serif Collection";
 }
 
+iframe{
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+#iframeMap{
+  height: 450px;
+}
+
 /* Default CSS headers (by Joao Cordio) */
 h1, h2, h3, h4, h5, h6{
     font-family: "Arial Black";
