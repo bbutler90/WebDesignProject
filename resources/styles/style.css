@@ -1,10 +1,14 @@
 /* Team 3 - CSS for our Project  */
 
-/* Imports for custom Google Fonts, Roboto used on main menu and Dancing Script on the footer  */
+   /******************************/
+  /* CSS for the About Us page  */
+ /* Created by Joao Cordio     */
+/******************************/
+/* Imports for custom Google Fonts, Roboto used on main menu (nav bar) and Dancing Script on the footer  */
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-/* Default CSS for the page */
+/* Default CSS for the page (by Joao Cordio) */ 
 body, html{    
   margin: 0;
   padding: 0;
@@ -13,12 +17,12 @@ body, html{
   font-family: "Sans Serif Collection";
 }
 
-/* Default CSS headers */
+/* Default CSS headers (by Joao Cordio) */
 h1, h2, h3, h4, h5, h6{
     font-family: "Arial Black";
 }
 
-/* Default for Colors */
+/* Default for Colors (by Joao Cordio) */
 .colour-shamrock{
     color: #03AC13;
 }
@@ -31,7 +35,7 @@ h1, h2, h3, h4, h5, h6{
     color: #FF0000;
 }
 
-/* CSS for main NAV */
+/* CSS for main NAV (by Joao Cordio) */
 /* Shadow */
 .shadow {
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
@@ -53,10 +57,32 @@ a.nav-link.nav-link:HOVER {
     font-weight: bold;
 }
 
-/***************************/
-/****CSS for Footer.HTML****/
-/* Created by Joao Cordio  */
-/***************************/
+#btnTopo {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background-color: #d3d4d5;
+  color: #03AC13;
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  outline: none;
+  transition: opacity 0.3s ease-in-out;
+  z-index: 9999;
+}
+
+#btnTopo:hover {
+  opacity: 0.7;
+}
+
+   /****************************/
+  /* CSS for the Footer page  */
+ /* Created by Joao Cordio   */
+/****************************/
 
 /* Social Icons */
 .fa {    
@@ -89,10 +115,11 @@ a.nav-link.nav-link:HOVER {
     font-family: Dancing Script !important;
   }
 
+   /***************************/
+  /* CSS for the Index page  */
+ /* Created by Joao Cordio  */
 /***************************/
-/*   CSS for Index.html    */
-/* Created by Joao Cordio  */
-/***************************/
+/* CSS for the Mini-Game (by Joao Cordio) */
 #contentPlay{
 color: #fff;
 max-width: 100% !important;
@@ -119,7 +146,6 @@ cursor: pointer;
 }
 
 /* Carrosel CSS */
-
 #carousel-container {
   width: 100%;
   overflow: hidden;
@@ -155,6 +181,42 @@ cursor: pointer;
   right: 0;
 }
 
+/* CUSTOM BREAKPOINTS */
+
+/* SM breakpoint */
+@media (min-width: 100px ) {
+  /* that helps the game to have a better view on mobile */
+  #imageGame0, #imageGame1, #imageGame2{
+    height: 100px;
+    width: 80px;
+  }
+}
+
+/* MD breakpoint*/
+@media (min-width: 768px) {
+  #imageGame0, #imageGame1, #imageGame2{
+    height: 100%;
+    width: 100%;
+  }
+}
+
+/* LG breakpoint */
+@media (min-width: 992px) {
+    /* CUSTOM DISPLAY */
+	  .d-lg-none { 
+      display: none!important; 
+    }
+    #imageGame0, #imageGame1, #imageGame2{
+      height: 100%;
+      width: 100%;
+    }
+}
+/* >>> End CSS Index.HTML / Contact.html by <<< */
+
+   /******************************************/
+  /* CSS for the AboutUs/BreedHealth page   */
+ /* Created by Audrius Skema               */
+/******************************************/
 /* Audrius Skema - Health List with custom bullet points*/
 .custom-list {
   list-style-type: none; /* Remove default bullet points */
@@ -239,33 +301,11 @@ cursor: pointer;
 	transform: translateX(-50%);
 	text-align: center;
 }
-		
-/* CUSTOM BREAKPOINTS */
 
-/* SM breakpoint */
-@media (min-width: 500px) {
-  #imageGame0, #imageGame1, #imageGame2{
-    height: 100px;
-    width: 80px;
-  }
-}
-
-/* MD breakpoint*/
-@media (min-width: 768px) {
-}
-
-/* LG breakpoint */
-@media (min-width: 992px) {
-    /* CUSTOM DISPLAY */
-	  .d-lg-none { 
-      display: none!important; 
-    }
-    #imageGame0, #imageGame1, #imageGame2{
-      height: 100%;
-      width: 100%;
-    }
-}
-
+   /************************************************/
+  /* CSS for the OurDogs/Available Puppies page   */
+ /* Created by Brian                             */
+/************************************************/
 /*Brian Butler - Styling for dog images used on our dogs page. Set a fixed width, and set to fit*/
 .dog-img {
   width: 70%;
