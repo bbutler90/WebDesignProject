@@ -45,7 +45,7 @@ function play(){
     
   images.forEach(function(image) {
     image.setAttribute('data-value', '0');
-    image.setAttribute('src', 'resources\\images\\question-mark.png'); 
+    image.setAttribute('src', 'resources/images/question-mark.png'); 
   });
 
   //Create an Array with 1 (dog) and many 2(cats)
@@ -93,9 +93,9 @@ function setGameImages(element) {
   images.forEach(function(image) { 
       
     if(image.getAttribute('data-value') == "1"){
-      image.setAttribute('src', 'resources\\images\\dog-play.png');      
+      image.setAttribute('src', 'resources/images/dog-play.png');      
     }else if(image.getAttribute('data-value') == "2"){
-      image.setAttribute('src', 'resources\\images\\cat-play.png');      
+      image.setAttribute('src', 'resources/images/cat-play.png');      
     }else{
       document.getElementById("gameMessage").innerHTML = "<div class='alert alert-warning' role='alert'>You need to click on 'Play!' first.</div>";
     }
