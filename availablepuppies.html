@@ -1,17 +1,17 @@
 <!-- Team 3 - Available Puppies Page: Brian Butler -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <title>EMERALDSWISS - Where Beauty Meets Boundless Love</title>
         <!-- This meta viewport makes it responsive for mobile -->
         <meta name="viewport" content="width=device-width, initial-scale=1">   
         <link rel="icon" type="image/x-icon" href="resources/images/round-logo.png">
 
-        <link rel="stylesheet" href="resources/bootstrap-5.3.3-dist/css/bootstrap.css"/>
+        <link rel="stylesheet" href="resources/bootstrap-5.3.3-dist/css/bootstrap.css">
         <script src="resources/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script> 
 
         <!-- CSS/JS import -->
-        <link rel="stylesheet" href="resources/styles/style.css"/>
+        <link rel="stylesheet" href="resources/styles/style.css">
         <script src="resources/scripts/script.js"></script>    
         
         <!-- Social Icons Import -->
@@ -24,9 +24,11 @@
         <!-- Main Nav Bar -->
         <div class="mainNav">            
             <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
-                &nbsp;&nbsp;EMERALDSWISS
-                
-                <button class="btn btn-light d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-expanded="false" aria-controls="collapseExample">
+                <a class="navbar-brand" href="#">
+                    &nbsp;&nbsp;<img src="resources/images/round-logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                    EMERALDSWISS  
+                </a>
+                <button class="btn btn-light d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-expanded="false" aria-controls="navbarNavAltMarkup">
                     <span class="navbar-toggler-icon"></span>
                 </button>                   
 
@@ -35,7 +37,8 @@
                         <a class="nav-item nav-link" href="index.html">Home</a>
                         <a class="nav-link nav-link" href="aboutus.html">About Us</a>
                         <a class="nav-link nav-link" href="ourdogs.html">Our Dogs</a>
-                        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <div class="nav-item dropdown"> <!-- Drop Down Menu -->
+							<a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 								Breed Health
 							</a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -45,7 +48,7 @@
 							</ul>
 						</div>
                         <a class="nav-link nav-link active" href="#">Available Puppies</a>
-                        <a class="nav-item nav-link" href="contactus.html">Contact Us</a>
+                        <a class="nav-item nav-link" href="contactus.html">Contact Us</a></a>
                     </div>
                 </div>
             </nav>
@@ -53,35 +56,37 @@
 
         <!-- Brian Butler: Container for Content -->
         <div class="container" id="content">
-            <h1 class="text-center">Available Puppies!</h1>
+            <h1 class="text-center">Available Puppies</h1>
 
             <!-- Image and Description -->
             <div class="row justify-content-center">
                 <div class="col-md-6 text-center">
                     <img id="puppyImage" src="resources/images/puppies1.jpg" class="img-fluid">
-                    <p id="puppyText">We are always excited when we have new litters - each one filled with adorable puppies ready to find their forever homes. Take a moment to read about adopting one of our puppies.</p>
+                    <p id="puppyText" class="text-justify">We are always excited when we have new litters - each one filled with adorable puppies ready to find their forever homes. Take a moment to read about adopting one of our puppies. Each of our puppies is given the utmost care and attention, ensuring they grow up healthy and happy. We work closely with veterinarians to ensure all our puppies are in the best of health before they go to their new homes. We also provide ongoing support and advice for new owners, helping you settle your new furry friend into your home. Our puppies are not just pets, they're family, and we're committed to helping each one find the perfect home. So why wait? Start the journey of adding a new member to your family today.</p>
                 </div>
             </div>
 
             <!--Brian Butler: Buttons used to change text and image -->
             <div class="row justify-content-center">
                 <div class="col-md-6 text-center">
-                    <button id="prevButton" class="btn btn-primary">Previous</button>
-                    <button id="nextButton" class="btn btn-primary">Next</button>
+                    <button id="prevButton" class="btn btn-success">Previous</button>
+                    <button id="nextButton" class="btn btn-success">Next</button>
                 </div>
             </div>
 
             <!--Brian Butler: PDF Download Link -->
             <div class="row justify-content-center btop-margin">
                 <div class="col-md-6 text-center">
-                    <a href="resources/images/Questionnaire.pdf" class="btn btn-primary" download target="_blank">
+                    <a href="resources/files/Questionnaire.pdf" class="btn btn-success" download target="_blank">
                         <i class="fa fa-file-pdf-o"></i> Download Our Puppy Owner Questionarie
                     </a>
                 </div>
             </div>
         </div>
         
-
+        <!-- Scroll to the top button -->
+        <button id="btnTopo" onclick="scrollToTop()">↑</button>
+        
         <!-- Container for Footer-->
         <div class="container" id="footer">
             <footer>
