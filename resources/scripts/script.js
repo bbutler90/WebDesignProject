@@ -155,6 +155,27 @@ document.addEventListener('DOMContentLoaded', function() {
         goToIndex(currentIndex + 1);
       }
     });
+	
+	// Audrius Skema: Set interval for automatic rotation
+    setInterval(() => {
+        if (currentIndex === numImages - 1) {
+            goToIndex(0);
+        } else {
+            goToIndex(currentIndex + 1);
+        }
+    }, 5000); // Rotate every 5 seconds
+});
+// >>>> End: Carousel Code <<<<
+// >>>> End: Index.html Code <<<<
+
+
+// code to a button where user can go to the top
+window.addEventListener('scroll', function() {
+  if (window.scrollY > 0) {
+    document.getElementById('btnTopo').style.display = 'block';
+  } else {
+    document.getElementById('btnTopo').style.display = 'none';
+  }
 });
 // >>>> End: Carousel Code <<<<
 // >>>> End: Index.html Code <<<<
@@ -264,102 +285,76 @@ function isValidEmail(email) {
 }
 // >>>> End: Contact.html Code <<<<
 
-// Audrius Skema: Function to rotate carousel evry 5sec 
-document.addEventListener('DOMContentLoaded', function() {
-    setInterval(function() {
-        document.getElementById('next-btn').click();
-    }, 5000);
-});
-
    /**************************************/
   /* JavaScript for the About Us page   */
  /* Created by Audrius Skema           */
 /**************************************/
-// Audrius Skema: Prepopulated Array with 5 Quotes about Dogs
-var quotes = [
-	"\"Dogs are better than human beings because they know a lot, but do not tell\" – Emily Dickinson",
-	"\"A dog is the only thing on earth that loves you more than you love yourself\" – Josh Billings",
-	"\"Money can buy you a fine dog, but only love can make him wag his tail\" – Kinky Friedman",
-	"\"Animals are such agreeable friends. They ask no questions, they pass no criticisms\" – George Eliot",
-	"\"When I walk my dog, people always ask if we’re twins as we look so alike\" – Jarod Kintz"
-];
-
-// Audrius Skema: Script to display quote with fading effect
+// Audrius Skema: Script to display Quotes in a Popup
 document.addEventListener('DOMContentLoaded', function () {
-	var index = 0;
-	var quoteElement = document.getElementById("quoteText");
-	var fadeInterval;
+  var quoteElement = document.getElementById("quoteText");
+  var quotePopup = document.getElementById("quotePopup");
 
-	// Function to display the current quote
-	function displayQuote() {
-		quoteElement.innerHTML = quotes[index];
-	}
-
-	// Function to fade quote
-	function fade() {
-		// Fade out
-		quoteElement.style.opacity = 0;
-		setTimeout(function () {
-			// Increment to navigate to the next quote
-			index = (index + 1) % quotes.length;
-			displayQuote();
-			quoteElement.style.opacity = 1;
-		}, 500); // Fade duration
-	}
-
-	// Display the initial quote
-	displayQuote();
-
-	// Call fade function every 5 sec
-	fadeInterval = setInterval(fade, 5000); 
-});
-
-// Audrius Skema: Script to handle the Quote Popup
-document.addEventListener('DOMContentLoaded', function () {
-    var quoteElement = document.getElementById("quoteText");
-    var quotePopup = document.getElementById("quotePopup");
-
-    // Function to display the entire list of quotes in the popup
-    function displayQuotes(quotes) {
-        quotePopup.innerHTML = ''; // Clear existing content
-        quotes.forEach(function (quote) { // Iterate over each quote in the array
-            var listItem = document.createElement('p'); // Create new paragraph for each quote
-            listItem.textContent = quote;
-            quotePopup.appendChild(listItem); // Append the paragraph to the popup
-        }); 
+  // Function to display the entire list of quotes in the popup
+  function displayQuotes() {
+    var quoteStorage = document.getElementById("quoteStorage"); // Quotes container
+    var quotes = quoteStorage ? Array.from(quoteStorage.getElementsByTagName("p")).map(function(p) { return p.textContent; }) : [];
+	// Extract the text content of each paragraph within the container
+    // If quoteStorage is not found, default to an empty array
+	
+	// Check if the popup element exists
+    if (quotePopup) {
+      quotePopup.innerHTML = ''; // Clear existing content
+      quotes.forEach(function (quote) { // For each quote create a paragraph in popup
+        var listItem = document.createElement('p');
+        listItem.textContent = quote;
+        quotePopup.appendChild(listItem);
+      });
+      quotePopup.style.display = 'block'; // Make popup visible
     }
+  }
 
-    // Event listener for hovering over the quote element to display the popup
-    quoteElement.addEventListener("mouseover", function (event) {
-        var rect = quoteElement.getBoundingClientRect(); // Position relative to the viewport
-        var topPosition = rect.bottom + window.pageYOffset; // Position of the popup calculated adding the bottom position of the quote element to the vertical scroll offset
-        
-        // Set position and display the popup
-        quotePopup.style.top = topPosition + "px"; //Set position
-        quotePopup.style.display = 'block'; // Make popup visible
-		displayQuotes(quotes); // Pass the quotes array as an argument
-    });
+  // Event listener for hovering over the quote element to display the popup
+  quoteElement?.addEventListener("mouseover", function () { // Optional chaining operator to evaluate the object and prevent console errors
+    displayQuotes();
+  });
 
-    // Event listener for moving the mouse out of the quote element to hide the popup
-    quoteElement.addEventListener("mouseout", function () {
-        quotePopup.style.display = 'none';
-    });
+  // Event listener for moving the mouse out of the quote element to hide the popup
+  quoteElement?.addEventListener("mouseout", function () { // Optional chaining operator to evaluate the object and prevent console errors
+    quotePopup.style.display = 'none'; // Hide the popup
+  });
 });
 
+   /****************************************/
+  /* JavaScript for the Breed Health page */
+ /* Created by Audrius Skema             */
+/****************************************/
 // Audrius Skema: Script to Toggle Hip Scoring table with the button
 document.addEventListener("DOMContentLoaded", function() {
   var toggleButton = document.getElementById("toggleTableBtn");
   var healthTable = document.getElementById("healthTable");
+  var contentBernergarde = document.getElementById("contentBernergarde");
 
-  toggleButton.addEventListener("click", function() {
-      // Toggle the visibility of the table
-      healthTable.classList.toggle("d-none");
-  });
+  // Function to toggle the visibility of the table
+  function toggleTableVisibility() {
+    healthTable.classList.toggle("d-none");
+  }
+
+  // Function to hide the table
+  function hideTable() {
+    if (!healthTable.classList.contains("d-none")) {
+      healthTable.classList.add("d-none");
+    }
+  }
+  // Function to toggle table visibility when clicked on next heading 
+  if (toggleButton && healthTable && contentBernergarde) {
+    toggleButton.addEventListener("click", toggleTableVisibility);
+    contentBernergarde.addEventListener("click", hideTable);
+  }
 });
-// >>>> End: Aboutus.html / Breed Health Code <<<<
+// >>>> End: Aboutus.html / Breed Health.html Code <<<<
 
    /**************************************/
-  /* JavaScript for the About Us page   */
+  /* JavaScript for the Our Dogs page   */
  /* Created by Brian Butler            */
 /**************************************/
 // Brian Butler: script to pop up a modal with dog info
@@ -397,7 +392,7 @@ var currentIndex = 0;
 
 window.onload = function() {
   // Handle prevButton clicks
-  document.getElementById('prevButton').addEventListener('click', function() {
+  document.getElementById('prevButton')?.addEventListener('click', function() {
     // Go to the previous image, or the last one if we're at the start
     currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
 
@@ -407,7 +402,7 @@ window.onload = function() {
   });
 
   // Handle nextButton clicks
-  document.getElementById('nextButton').addEventListener('click', function() {
+  document.getElementById('nextButton')?.addEventListener('click', function() {
     // Go to the next image, or the first one if at the end
     currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
     

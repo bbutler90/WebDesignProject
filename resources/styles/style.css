@@ -122,7 +122,7 @@ a.nav-link.nav-link:HOVER {
 
 
   #footer p{
-    font-family: Dancing Script !important;
+    font-family: DancingScript !important;
   }
 
    /***************************/
@@ -288,6 +288,11 @@ cursor: pointer;
 	font-weight: bold;
 	font-size: 24px; 
 	color: #03AC13; /* Shamrock */
+}
+
+#quoteText {
+  transition: opacity 0.5s ease-in-out;
+  opacity: 1; /* Start fully visible */
 }
 
 #quoteText {
