@@ -380,7 +380,7 @@ var currentIndex = 0;
 
 window.onload = function() {
   // Handle prevButton clicks
-  document.getElementById('prevButton').addEventListener('click', function() {
+  document.getElementById('prevButton')?.addEventListener('click', function() {
     // Go to the previous image, or the last one if we're at the start
     currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
 
@@ -390,7 +390,7 @@ window.onload = function() {
   });
 
   // Handle nextButton clicks
-  document.getElementById('nextButton').addEventListener('click', function() {
+  document.getElementById('nextButton')?.addEventListener('click', function() {
     // Go to the next image, or the first one if at the end
     currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
     
