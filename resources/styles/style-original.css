@@ -133,7 +133,7 @@ a.nav-link.nav-link:HOVER {
 #contentPlay{
 color: #fff;
 max-width: 100% !important;
-background-image: url("../../resources/images/game/diagonal_dot.jpg");
+background-image: url("../../resources/images/game/diagonal_dot.webp");
 background-repeat: repeat;
 }
 
