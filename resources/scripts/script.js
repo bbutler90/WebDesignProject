@@ -177,6 +177,18 @@ window.addEventListener('scroll', function() {
     document.getElementById('btnTopo').style.display = 'none';
   }
 });
+// >>>> End: Carousel Code <<<<
+// >>>> End: Index.html Code <<<<
+
+
+// code to a button where user can go to the top
+window.addEventListener('scroll', function() {
+  if (window.scrollY > 0) {
+    document.getElementById('btnTopo').style.display = 'block';
+  } else {
+    document.getElementById('btnTopo').style.display = 'none';
+  }
+});
 
 function scrollToTop() {
   window.scrollTo({
